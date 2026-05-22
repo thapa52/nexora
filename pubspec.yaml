@@ -23,6 +23,10 @@ dependencies:
   # Environment Variables
   flutter_dotenv: ^6.0.1
 
+  # Code Generation
+  freezed_annotation: ^3.1.0
+  json_annotation: ^4.9.0
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -32,6 +36,8 @@ dev_dependencies:
   # Cone Generation
   riverpod_generator: ^2.6.5
   build_runner: ^2.5.4
+  freezed: ^3.1.0
+  json_serializable: ^6.9.5
 
 flutter:
   uses-material-design: true
