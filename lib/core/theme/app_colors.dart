@@ -18,7 +18,7 @@ class AppColors {
   static const Color backgroundLight = Color(0xFFF8F9FA);
   static const Color surfaceLight = Color(0xFFFFFFFF);
   static const Color textPrimaryLight = Color(0xFF1A1A2E);
-  static const Color textSecindaryLight = Color(0xFF6B7280);
+  static const Color textSecondaryLight = Color(0xFF6B7280);
   static const Color dividerLight = Color(0xFFE5E7EB);
 
   /// Dark mode
