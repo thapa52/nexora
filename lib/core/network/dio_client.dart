@@ -37,44 +37,44 @@ class DioClient {
 
     return dio;
   }
+}
 
-  /// Converts DioException to our custom AppException.
-  /// Call this in every repository catch block.
-  /// Keeps error handling consistent across the app.
-  AppException handleDioException(DioException error) {
-    switch (error.type) {
-      case DioExceptionType.connectionTimeout:
-      case DioExceptionType.receiveTimeout:
-      case DioExceptionType.sendTimeout:
-        return const NetworkException(
-          message: 'Connection timed out. Please try again',
-        );
-      case DioExceptionType.connectionError:
-        return const NetworkException(message: 'No internet connection');
-      case DioExceptionType.badResponse:
-        final statusCode = error.response?.statusCode;
-        final message = _extractErrorMessage(error.response);
-        return ServerException(message: message, statusCode: statusCode);
-      default:
-        return NetworkException(
-          message: error.message ?? 'An unexpected error occured',
-        );
-    }
+/// Converts DioException to our custom AppException.
+/// Call this in every repository catch block.
+/// Keeps error handling consistent across the app.
+AppException handleDioException(DioException error) {
+  switch (error.type) {
+    case DioExceptionType.connectionTimeout:
+    case DioExceptionType.receiveTimeout:
+    case DioExceptionType.sendTimeout:
+      return const NetworkException(
+        message: 'Connection timed out. Please try again',
+      );
+    case DioExceptionType.connectionError:
+      return const NetworkException(message: 'No internet connection');
+    case DioExceptionType.badResponse:
+      final statusCode = error.response?.statusCode;
+      final message = _extractErrorMessage(error.response);
+      return ServerException(message: message, statusCode: statusCode);
+    default:
+      return NetworkException(
+        message: error.message ?? 'An unexpected error occured',
+      );
   }
+}
 
-  /// Extract error message from server response
-  String _extractErrorMessage(Response? response) {
-    if (response == null) return 'Server error occured.';
-    try {
-      final data = response.data;
-      if (data is Map<String, dynamic>) {
-        return data['message'] as String? ??
-            data['error'] as String? ??
-            'Server error occured.';
-      }
-      return 'Server error occured';
-    } catch (e) {
-      return 'Server error occured';
+/// Extract error message from server response
+String _extractErrorMessage(Response? response) {
+  if (response == null) return 'Server error occured.';
+  try {
+    final data = response.data;
+    if (data is Map<String, dynamic>) {
+      return data['message'] as String? ??
+          data['error'] as String? ??
+          'Server error occured.';
     }
+    return 'Server error occured';
+  } catch (e) {
+    return 'Server error occured';
   }
 }
