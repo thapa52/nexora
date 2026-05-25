@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../../core/constants/app_constants.dart';
 import '../../../../core/extensions/context_extentions.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
 import '../../../../core/utils/validators.dart';
+import '../../../../router/app_router.dart';
 import '../providers/auth_notifier.dart';
 import '../widgets/auth_button.dart';
 import '../widgets/auth_text_field.dart';
@@ -176,6 +178,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
           onTap: () {
             // Navigate to register screen
             // Will be connected with GoRouter later
+            GoRouter.of(context).push(RoutePaths.register);
           },
           child: Text(
             'Register',
