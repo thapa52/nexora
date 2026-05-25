@@ -88,11 +88,18 @@ lib/
 - [x] Extensions (context + string)
 - [x] Utilities (validators + date formatter)
 - [x] Network layer (Dio client + logging interceptor)
-- [ ] Authentication feature
+- [x] Authentication feature
+  - [x] Domain layer (UserEntity, AuthRepository, Use Cases)
+  - [x] Data layer (UserModel, LocalDatasource, RepositoryImpl)
+  - [x] Presentation layer (Riverpod providers, Login/Register screens)
+  - [x] Navigation guards with GoRouter
+  - [x] Session persistence with FlutterSecureStorage
+  - [x] Form validation
 - [ ] News feed feature
 - [ ] Bookmarks feature
 - [ ] Shared widgets
-- [ ] Navigation setup
+- [ ] Theme switching
+- [ ] Tests
 
 ---
 
