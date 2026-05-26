@@ -95,7 +95,15 @@ lib/
   - [x] Navigation guards with GoRouter
   - [x] Session persistence with FlutterSecureStorage
   - [x] Form validation
-- [ ] News feed feature
+- [x] News feed feature
+  - [x] Domain layer (StoryEntity, NewsRepository, Use Cases)
+  - [x] Data layer (StoryModel, RemoteDatasource, RepositoryImpl)
+  - [x] Presentation layer (Riverpod providers, News Feed screen)
+  - [x] Real Hacker News API integration
+  - [x] Infinite scroll pagination
+  - [x] Pull to refresh
+  - [x] Category switching (Top, New, Best)
+  - [x] Error handling with retry
 - [ ] Bookmarks feature
 - [ ] Shared widgets
 - [ ] Theme switching
