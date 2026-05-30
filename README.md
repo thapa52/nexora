@@ -104,10 +104,14 @@ lib/
   - [x] Pull to refresh
   - [x] Category switching (Top, New, Best)
   - [x] Error handling with retry
+- [x] Unit tests
+  - [x] Validator tests
+  - [x] Date formatter tests
+  - [x] Auth use case tests (login, register, logout)
+  - [x] News model and use case tests
 - [ ] Bookmarks feature
 - [ ] Shared widgets
 - [ ] Theme switching
-- [ ] Tests
 
 ---
 
@@ -136,6 +140,24 @@ dart run build_runner build --delete-conflicting-outputs
 
 # Run the app
 flutter run
+```
+
+---
+
+## Testing
+
+Unit tests are implemented for core utilities and feature use cases.
+Widget and integration tests are planned for future implementation.
+
+```bash
+# Run all tests
+flutter test
+
+# Run specific test file
+flutter test test/core/utils/validators_test.dart
+
+# Run with verbose output
+flutter test --reporter expanded
 ```
 
 ---
