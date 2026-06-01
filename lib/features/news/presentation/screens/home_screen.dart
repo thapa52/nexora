@@ -8,7 +8,7 @@ import '../../../auth/presentation/providers/auth_notifier.dart';
 import '../../domain/entities/story_category.dart';
 import '../providers/news_feed_notifier.dart';
 import '../providers/news_providers.dart';
-import '../widgets/story_card.dart';
+import '../../../../shared/widgets/story_card.dart';
 
 /// Main news feed screen.
 /// Shows stories from Hacker News with category tabs.

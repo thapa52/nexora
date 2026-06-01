@@ -6,7 +6,9 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 import '../features/auth/presentation/providers/auth_notifier.dart';
 import '../features/auth/presentation/screens/login_screen.dart';
 import '../features/auth/presentation/screens/register_screen.dart';
+import '../features/bookmarks/presentation/screens/bookmarks_screen.dart';
 import '../features/news/presentation/screens/home_screen.dart';
+import '../shared/screens/main_shell_screen.dart';
 
 part 'app_router.g.dart';
 
@@ -18,6 +20,7 @@ class RoutePaths {
   static const String login = '/login';
   static const String register = '/register';
   static const String home = '/home';
+  static const String bookmarks = '/bookmarks';
 }
 
 @riverpod
@@ -59,9 +62,20 @@ GoRouter appRouter(Ref ref) {
         path: RoutePaths.register,
         builder: (context, state) => const RegisterScreen(),
       ),
-      GoRoute(
-        path: RoutePaths.home,
-        builder: (context, state) => const HomeScreen(),
+
+      // Shell route for bottom navigation
+      ShellRoute(
+        builder: (context, state, child) => MainShellScreen(child: child),
+        routes: [
+          GoRoute(
+            path: RoutePaths.home,
+            builder: (context, state) => const HomeScreen(),
+          ),
+          GoRoute(
+            path: RoutePaths.bookmarks,
+            builder: (context, state) => const BookmarksScreen(),
+          ),
+        ],
       ),
     ],
     errorBuilder:
