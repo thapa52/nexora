@@ -61,7 +61,7 @@ lib/
 │   ├── auth/               # Authentication
 │   │   ├── data/           # Datasources, models, repository impl
 │   │   ├── domain/         # Entities, repository interface, use cases
-│   │   └── presentation/  # Providers, screens, widgets
+│   │   └── presentation/   # Providers, screens, widgets
 │   ├── news/               # Developer news feed
 │   │   ├── data/
 │   │   ├── domain/
@@ -71,9 +71,10 @@ lib/
 │       ├── domain/
 │       └── presentation/
 ├── shared/
-│   ├── widgets/            # Reusable widgets
+│   ├── widgets/            # Reusable widgets (StoryCard)
+│   ├── screens/            # Shared screens (MainShellScreen)
 │   └── providers/          # Shared providers
-├── router/                 # App navigation
+├── router/                 # App navigation with GoRouter
 └── main.dart
 ```
 
@@ -104,13 +105,22 @@ lib/
   - [x] Pull to refresh
   - [x] Category switching (Top, New, Best)
   - [x] Error handling with retry
+- [x] Bookmarks feature
+  - [x] Domain layer (BookmarkRepository, Use Cases)
+  - [x] Data layer (Hive datasource, BookmarkModel, RepositoryImpl)
+  - [x] Presentation layer (Riverpod providers, Bookmarks screen)
+  - [x] Bookmark toggle on story cards
+  - [x] Swipe to delete bookmarks
+  - [x] Empty state UI
+  - [x] Offline persistence with Hive
+- [x] Bottom navigation (Home + Bookmarks)
+- [x] Shared widgets (StoryCard)
 - [x] Unit tests
   - [x] Validator tests
   - [x] Date formatter tests
-  - [x] Auth use case tests (login, register, logout)
+  - [x] Auth use case tests
   - [x] News model and use case tests
-- [ ] Bookmarks feature
-- [ ] Shared widgets
+  - [x] Bookmark use case tests
 - [ ] Theme switching
 
 ---
