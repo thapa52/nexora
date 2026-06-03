@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../../core/extensions/context_extentions.dart';
 import '../../../../core/theme/app_colors.dart';
 import '../../../../core/theme/app_text_styles.dart';
+import '../../../../shared/providers/theme_provider.dart';
 import '../../../auth/presentation/providers/auth_notifier.dart';
 import '../../domain/entities/story_category.dart';
 import '../providers/news_feed_notifier.dart';
@@ -85,6 +86,19 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         ),
       ),
       actions: [
+        // Theme toggle
+        IconButton(
+          onPressed: () {
+            ref.read(themeNotifierProvider.notifier).toggleTheme();
+          },
+          icon: Icon(
+            ref.watch(themeNotifierProvider) == ThemeMode.dark
+                ? Icons.light_mode_rounded
+                : Icons.dark_mode_rounded,
+          ),
+        ),
+
+        // Logout
         IconButton(
           onPressed: () {
             ref.read(authNotifierProvider.notifier).logout();
