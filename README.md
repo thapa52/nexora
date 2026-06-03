@@ -1,35 +1,32 @@
 # Nexora
 
 A modern, production-ready Flutter application built with
-Clean Architecture and Riverpod state management.
+Clean Architecture and Riverpod state management. Nexora delivers
+curated developer news with a seamless reading and bookmarking experience.
 
-> Currently under active development
-
----
-
-## Features (Planned)
-
-- Authentication — Secure login and registration flow
-- Developer News Feed — Real-time stories from Hacker News API
-- Bookmarking — Save and manage favorite stories offline
-- Search & Filter — Find stories by keyword and category
-- Dark / Light Theme — System-aware with manual toggle
-- Offline Support — Read saved content without internet
+> Built to demonstrate professional Flutter development practices
+> including scalable architecture, API integration, authentication,
+> offline support, and polished UI/UX.
 
 ---
 
-## Tech Stack
+## Screenshots
 
-| Category | Technology |
-|---|---|
-| Framework | Flutter 3.29.3 |
-| State Management | Riverpod 2.6.1 |
-| Navigation | GoRouter 17.0.0 |
-| Networking | Dio 5.9.2 |
-| Code Generation | Freezed 3.1.0 |
-| Environment | flutter_dotenv 6.0.1 |
-| Architecture | Clean Architecture |
-| API | Hacker News API |
+> Coming soon
+
+---
+
+## Features
+
+- **Authentication** — Secure login and registration flow
+- **Developer News Feed** — Real-time stories from Hacker News API
+- **Bookmarking** — Save and manage favorite stories offline
+- **Dark / Light Theme** — Toggle with persistent preference
+- **Infinite Scroll** — Smooth pagination experience
+- **Pull to Refresh** — Fresh content on demand
+- **Category Switching** — Top, New, Best stories
+- **Offline Bookmarks** — Read saved content without internet
+- **Material 3** — Modern design system
 
 ---
 
@@ -40,8 +37,25 @@ Nexora follows **Clean Architecture** principles:
 ```
 Presentation Layer  →  UI, Screens, Widgets, Riverpod Providers
 Domain Layer        →  Entities, Use Cases, Repository Interfaces
-Data Layer          →  API, Local DB, Repository Implementations, DTOs
+Data Layer          →  API, Local DB, Repository Implementations
 ```
+
+---
+
+## Tech Stack
+
+| Category | Technology |
+|---|---|
+| Framework | Flutter 3.29.3 |
+| Dart | 3.7.2 |
+| State Management | Riverpod 2.6.1 |
+| Navigation | GoRouter 17.0.0 |
+| Networking | Dio 5.9.2 |
+| Local Storage | Hive 1.1.0 + SharedPreferences 2.5.3 |
+| Secure Storage | FlutterSecureStorage 10.3.0 |
+| Code Generation | Freezed 3.1.0 |
+| Architecture | Clean Architecture |
+| API | Hacker News API |
 
 ---
 
@@ -73,9 +87,26 @@ lib/
 ├── shared/
 │   ├── widgets/            # Reusable widgets (StoryCard)
 │   ├── screens/            # Shared screens (MainShellScreen)
-│   └── providers/          # Shared providers
+│   └── providers/          # Shared providers (ThemeNotifier)
 ├── router/                 # App navigation with GoRouter
 └── main.dart
+```
+
+Each feature follows Clean Architecture:
+```
+feature/
+├── data/               # API, models, repository implementation
+│   ├── datasources/
+│   ├── models/
+│   └── repositories/
+├── domain/             # Business logic, entities, contracts
+│   ├── entities/
+│   ├── repositories/
+│   └── usecases/
+└── presentation/       # UI and state management
+    ├── providers/
+    ├── screens/
+    └── widgets/
 ```
 
 ---
@@ -115,13 +146,13 @@ lib/
   - [x] Offline persistence with Hive
 - [x] Bottom navigation (Home + Bookmarks)
 - [x] Shared widgets (StoryCard)
+- [x] Theme switching with persistence
 - [x] Unit tests
   - [x] Validator tests
   - [x] Date formatter tests
   - [x] Auth use case tests
   - [x] News model and use case tests
   - [x] Bookmark use case tests
-- [ ] Theme switching
 
 ---
 
@@ -157,7 +188,6 @@ flutter run
 ## Testing
 
 Unit tests are implemented for core utilities and feature use cases.
-Widget and integration tests are planned for future implementation.
 
 ```bash
 # Run all tests
@@ -169,6 +199,25 @@ flutter test test/core/utils/validators_test.dart
 # Run with verbose output
 flutter test --reporter expanded
 ```
+
+---
+
+## Clean Architecture Layers
+
+### Presentation
+- Screens and widgets built with Flutter
+- State managed with Riverpod notifiers
+- No business logic in UI layer
+
+### Domain
+- Pure Dart — zero Flutter dependencies
+- Use cases represent single business actions
+- Repository interfaces define data contracts
+
+### Data
+- Implements domain repository interfaces
+- Handles API calls via Dio
+- Manages local persistence with Hive
 
 ---
 
